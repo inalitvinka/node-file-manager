@@ -7,6 +7,7 @@ const colorsCodes = {
   magenda: '\x1b[35m',
   white: '\x1b[37m',
   grey: '\x1b[90m',
+  green: '\x1b[32m',
   cyan: '\x1b[36m',
   reset: '\x1b[0m',
 }
