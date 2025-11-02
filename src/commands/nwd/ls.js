@@ -1,4 +1,4 @@
-import { readdir, stat } from 'fs/promises';
+import { readdir } from 'fs/promises';
 import { cwd } from 'process';
 
 import { printText, colorsCodes } from '../../utils/index.js';
@@ -6,7 +6,6 @@ import { printText, colorsCodes } from '../../utils/index.js';
 const ls = async () => {
   try {
     const currentDir = cwd();
-    console.log('cur dir:', currentDir);
     const items = await readdir(currentDir, { withFileTypes: true });
     const folders = [];
     const files = [];
