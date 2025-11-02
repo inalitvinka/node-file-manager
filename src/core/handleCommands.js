@@ -10,6 +10,8 @@ const handleCommands = async (line) => {
     if (handleCommand) {
       printText(`\n Running command: ${command} ${rest.join(' ')}`, colorsCodes.magenda);
       await handleCommand(rest);
+    } else {
+      printText('\n Invalid input', colorsCodes.red);
     }
   } catch (error) {
     printText(`Operation failed: ${error.message}`, colorsCodes.red);
