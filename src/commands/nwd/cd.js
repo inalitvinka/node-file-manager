@@ -4,11 +4,12 @@ import { chdir, cwd } from "process";
 
 import { colorsCodes, printText } from "../../utils/index.js";
 
-const cd = async (path) => {
+const cd = async (args) => {
   try {
-    if (!path) {
+    if (!args || !args.length) {
       printText('Operation failed: path is required', colorsCodes.red);
     }
+    const path = args[0];
     const absPath = resolve(cwd(), path);
     const stats = await stat(absPath);
     if (!stats.isDirectory()) {
