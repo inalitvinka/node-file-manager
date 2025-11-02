@@ -1,28 +1,16 @@
 import { printCurrentDir, printText, colorsCodes } from '../utils/index.js';
-import { exit } from './exit.js';
-import { osCommands, nwdCommands } from '../commands/index.js';
+import { commands } from '../commands/index.js';
 
-const commands = {
-  '.exit': exit,
-  ...osCommands,
-  ...nwdCommands,
-}
 
 const handleCommands = async (line) => {
-  // console.log(line);
   const normalizedLine = line.trim().replace(/\s+/g, ' ');
+  const [command, ...rest] = normalizedLine.split(' ');
+  const handleCommand = commands[command];
   try {
-    let command = commands[normalizedLine];
-    if (command) {
-      await command();
-    } else {
-      const [baseCommand, ...args] = normalizedLine.split(' ');
-      command = commands[baseCommand];
-      if (command) {
-        await command(...args);
-      } else {
-        printText('\n Invalid input', colorsCodes.red);
-      }
+    if (handleCommand) {
+      console.log(`Executing command: ${command} ${rest.join(' ')}`);
+      console.log(rest);
+      await handleCommand(rest);
     }
   } catch (error) {
     printText(`Operation failed: ${error.message}`, colorsCodes.red);
