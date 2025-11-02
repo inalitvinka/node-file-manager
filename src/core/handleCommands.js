@@ -8,8 +8,7 @@ const handleCommands = async (line) => {
   const handleCommand = commands[command];
   try {
     if (handleCommand) {
-      console.log(`Executing command: ${command} ${rest.join(' ')}`);
-      console.log(rest);
+      printText(`\n ${command} ${rest.join(' ')} is running...`, colorsCodes.magenda);
       await handleCommand(rest);
     }
   } catch (error) {
