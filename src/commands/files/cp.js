@@ -24,7 +24,7 @@ const cp = async (args) => {
     }
     const destPath = join(destDir, basename(srcPath));
     await pipeline(createReadStream(srcPath), createWriteStream(destPath));
-    printText('File copied', colorsCodes.magenda);
+    printText(`\n> File copied`, colorsCodes.magenda);
   } catch (error) {
     if (error.code === 'ENOENT') {
       printText('Operation failed: source or destination does not exist', colorsCodes.red);
