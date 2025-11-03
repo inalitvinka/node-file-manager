@@ -1,0 +1,20 @@
+{
+  "name": "file-manager",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/inalitvinka/node-file-manager#readme",
+  "bugs": {
+    "url": "https://github.com/inalitvinka/node-file-manager/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inalitvinka/node-file-manager.git"
+  },
+  "license": "ISC",
+  "author": "Ina Litvinka",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}
